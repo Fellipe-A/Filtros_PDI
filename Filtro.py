@@ -9,7 +9,6 @@ img_original = img_original.astype(float)
 Filtro = input("""Selecione o filtro de entrada:\n
  1 = Filtro da média;\n 2 = Filtro da mediana;\n 3 = Filtro Gaussiano;
  4 = Laplaciano;\n 5 = Filtro de Sobel\n 6 =Filtro bilateral
- 7 = Filtro minimo;\n 8 = Filtro maximo
 """)
 Filtro_INT  = int(Filtro)
 
@@ -74,19 +73,6 @@ elif Filtro_INT == 6:
     #Parâmetros: 10 - largura do filtro, 100 - Sigma color (>150)
     img_Filtrada = cv2.bilateralFilter(img_original,10,150,150)
 
-elif Filtro_INT == 7:
-#Aplicação de filtro da média
-    Tamanho = input('Informe o tamanho da máscara\n')
-    Tamanho_INT = int(Tamanho)
-    kernel = np.ones((Tamanho_INT,Tamanho_INT),np.float32)/Tamanho_INT*Tamanho_INT
-    img_Filtrada = cv2.filter2D(img_original,-1,kernel)
-
-elif Filtro_INT == 8:
-#Aplicação de filtro da média
-    Tamanho = input('Informe o tamanho da máscara\n')
-    Tamanho_INT = int(Tamanho)
-    kernel = np.ones((Tamanho_INT,Tamanho_INT),np.float32)/Tamanho_INT*Tamanho_INT
-    img_Filtrada = cv2.filter2D(img_original,-1,kernel)
 
 else: 
     print('Escolha um filtro válido')
